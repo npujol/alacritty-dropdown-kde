@@ -1,7 +1,7 @@
 {
 	"KPlugin": {
-		"Name": "Alacritty Drop-Down",
-		"Description": "Adds drop-down functionallity to Alacritty.",
+		"Name": "Kitty Drop-Down",
+		"Description": "Adds drop-down functionallity to Kitty.",
 		"Icon": "preferences-system-windows",
 
 		"Authors" : [
@@ -10,10 +10,10 @@
 				"Name": "Vinicius Gobbo Antunes de Oliveira"
 			}
 		],
-		"Id": "alacritty-dropdown",
+		"Id": "kitty-dropdown",
 		"Version": "0.3.0",
 		"License": "GPL",
-		"Website": "https://github.com/vgobbo/alacritty-dropdown-kde/tree/main"
+		"Website": "https://github.com/vgobbo/kitty-dropdown-kde/tree/main"
 	},
 
 	"X-Plasma-API": "javascript",

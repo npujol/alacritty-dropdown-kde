@@ -2,13 +2,13 @@
 # vim:tabstop=4:shiftwidth=4:noexpandtab
 */
 
-function isAlacritty(client) {
-	return client && !client.deleted && client.normalWindow && client.resourceName.toString() === "alacritty";
+function isKitty(client) {
+	return client && !client.deleted && client.normalWindow && client.resourceName.toString() === "kitty";
 }
 
-function findAlacritty() {
+function findKitty() {
 	let clients = workspace.windowList();
-	return clients.find(client => isAlacritty(client)) || null;
+	return clients.find(client => isKitty(client)) || null;
 }
 
 function isVisible(client) {
@@ -55,38 +55,37 @@ function hide(client) {
 	client.minimized = true;
 }
 
-function toggleAlacritty() {
-	let alacritty = findAlacritty();
-	if ( alacritty ) {
-		if ( isVisible(alacritty) ) {
-			if ( isActive(alacritty) ) {
-				hide(alacritty);
+function toggleKitty() {
+	let kitty = findKitty();
+	if ( kitty ) {
+		if ( isVisible(kitty) ) {
+			if ( isActive(kitty) ) {
+				hide(kitty);
 			} else {
-				activate(alacritty);
+				activate(kitty);
 			}
 		} else {
-			show(alacritty);
-			activate(alacritty);
+			show(kitty);
+			activate(kitty);
 		}
 	}
 }
 
-function setupAlacritty(client) {
-	if ( isAlacritty(client) ) {
+function setupKitty(client) {
+	if ( isKitty(client) ) {
 		setupClient(client);
 		printClient(client);
 	}
 }
 
 function init() {
-	let alacritty = findAlacritty();
-	if ( alacritty ) {
-		setupClient(alacritty);
+	let kitty = findKitty();
+	if ( kitty ) {
+		setupClient(kitty);
 	}
 
-	workspace.windowAdded.connect(setupAlacritty);
-	registerShortcut("Alacritty Toggle", "Toggle Alacritty open/closed.", "Meta+F12", toggleAlacritty);
+	workspace.windowAdded.connect(setupKitty);
+	registerShortcut("Kitty Toggle", "Toggle Kitty open/closed.", "F12", toggleKitty);
 }
 
 init();
-
